@@ -1,0 +1,29 @@
+<?php
+
+namespace KennedyOsaze\PhpCsFixerConfig;
+
+use PhpCsFixer\Config as FixerConfig;
+use PhpCsFixer\Finder;
+
+class Config extends FixerConfig
+{
+    public static function make(Finder $finder, bool $riskAllowed = true): self
+    {
+        return (new static())
+            ->setFinder($finder)
+            ->setRiskyAllowed($riskAllowed)
+            ->setRules(static::getDefaultRules());
+    }
+
+    public function mergeRules(array $rules): self
+    {
+        $this->rules = array_merge($this->rules, $rules);
+
+        return $this;
+    }
+
+    public static function getDefaultRules(): array
+    {
+        return require __DIR__.'/rules.php';
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "name": "kennedy-osaze/php-cs-fixer-config",
+    "description": "Opinionated configuration for PHP coding standard rules",
+    "keywords": [
+        "PHP",
+        "coding-standards",
+        "phpcs",
+        "code-style"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kennedy-osaze",
+            "email": "me.osaze@gmail.com",
+            "role": "maintainer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "KennedyOsaze\\PhpCsFixerConfig\\": "src/"
+        }
+    },
+    "require": {
+        "friendsofphp/php-cs-fixer": "^2.19"
+    },
+    "minimum-stability": "stable"
+}
