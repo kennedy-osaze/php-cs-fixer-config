@@ -7,7 +7,7 @@ use PhpCsFixer\Finder;
 
 class Config extends FixerConfig
 {
-    public static function make(Finder $finder, bool $riskAllowed = true): self
+    public static function create(Finder $finder, bool $riskAllowed = true): self
     {
         return (new static())
             ->setFinder($finder)

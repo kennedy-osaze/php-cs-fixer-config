@@ -18,7 +18,7 @@ use PhpCsFixer\Finder;
 
 $finder = Finder::create()->in(__DIR__);
 
-return Config::make($finder);
+return Config::create($finder);
 ```
 
 ### Customisation
@@ -29,7 +29,7 @@ $rules = [
     // Your PHP-CS-Fixer rules come here...
 ];
 
-return Config::make($finder)->mergeRules($rules);
+return Config::create($finder)->mergeRules($rules);
 ```
 
 The `KennedyOsaze\PhpCsFixerConfig\Config` is basically an extension of the PHP-CS-Fixer `Config` class, and as such, it be configured in the same way the later is usually configured.

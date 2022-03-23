@@ -7,27 +7,24 @@ on:
     branches: [ main ]
 
 jobs:
-  style:
+  build:
+
     runs-on: ubuntu-latest
-    name: "Standard check"
 
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v2
       with:
-        php-version: '7.4'
-        extensions: json, tokenizer
-        coverage: none
-
-    - name: Cache dependencies
-      uses: actions/cache@v1
-      with:
-          path: ~/.composer/cache/files
-          key: dependencies-composer-${{ hashFiles('composer.json') }}-v1
-
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
     - name: Install dependencies
       run: composer install --verbose --prefer-dist --no-interaction --no-suggest
 
