@@ -21,7 +21,7 @@
         }
     },
     "require": {
-        "friendsofphp/php-cs-fixer": "^2.19"
+        "friendsofphp/php-cs-fixer": "^3.8"
     },
     "minimum-stability": "stable"
 }
