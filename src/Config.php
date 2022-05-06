@@ -17,7 +17,7 @@ class Config extends FixerConfig
 
     public function mergeRules(array $rules): self
     {
-        $this->rules = array_merge($this->getRules(), $rules);
+        $this->setRules(array_merge($this->getRules(), $rules));
 
         return $this;
     }
