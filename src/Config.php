@@ -4,7 +4,6 @@ namespace KennedyOsaze\PhpCsFixerConfig;
 
 use PhpCsFixer\Config as FixerConfig;
 use PhpCsFixer\Finder;
-use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 use PhpCsFixerCustomFixers\Fixer\CommentSurroundedBySpacesFixer;
 use PhpCsFixerCustomFixers\Fixer\ConstructorEmptyBracesFixer;
