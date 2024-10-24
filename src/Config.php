@@ -24,7 +24,6 @@ use PhpCsFixerCustomFixers\Fixer\PhpdocParamTypeFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpdocSelfAccessorFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpdocTypesCommaSpacesFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpdocTypesTrimFixer;
-use PhpCsFixerCustomFixers\Fixer\PromotedConstructorPropertyFixer;
 use PhpCsFixerCustomFixers\Fixer\SingleSpaceAfterStatementFixer;
 use PhpCsFixerCustomFixers\Fixer\SingleSpaceBeforeStatementFixer;
 use PhpCsFixerCustomFixers\Fixers;
@@ -115,7 +114,7 @@ class Config
             'explicit_indirect_variable' => true,
             'explicit_string_variable' => true,
             'fopen_flag_order' => true,
-            'fully_qualified_strict_types' => true,
+            'fully_qualified_strict_types' => ['import_symbols' => true],
             'function_declaration' => true,
             'global_namespace_import' => true,
             'heredoc_indentation' => true,
@@ -175,6 +174,7 @@ class Config
             'no_unneeded_control_parentheses' => true,
             'no_unneeded_final_method' => true,
             'no_unneeded_import_alias' => true,
+            'no_unreachable_default_argument_value' => true,
             'no_unset_cast' => true,
             'no_unset_on_property' => true,
             'no_unused_imports' => true,
@@ -189,10 +189,10 @@ class Config
             'nullable_type_declaration' => true,
             'nullable_type_declaration_for_default_null_value' => true,
             'object_operator_without_whitespace' => true,
-            'operator_linebreak' => true,
-            'ordered_class_elements' => [
-                'order' => ['use_trait', 'case'],
+            'operator_linebreak' => [
+                'only_booleans' => true,
             ],
+            'ordered_class_elements' => true,
             'ordered_imports' => [
                 'imports_order' => [
                     'class',
@@ -226,6 +226,7 @@ class Config
             'phpdoc_separation' => true,
             'phpdoc_single_line_var_spacing' => true,
             'phpdoc_tag_casing' => true,
+            'phpdoc_tag_type' => ['tags' => ['inheritDoc' => 'inline']],
             'phpdoc_to_comment' => true,
             'phpdoc_trim' => true,
             'phpdoc_trim_consecutive_blank_line_separation' => true,
@@ -244,7 +245,6 @@ class Config
             'set_type_to_cast' => true,
             'simple_to_complex_string_variable' => true,
             'simplified_if_return' => true,
-            'simplified_null_return' => true,
             'single_class_element_per_statement' => true,
             'single_line_comment_spacing' => true,
             'single_line_comment_style' => true,
@@ -284,10 +284,9 @@ class Config
             PhpdocSelfAccessorFixer::name() => true,
             PhpdocTypesCommaSpacesFixer::name() => true,
             PhpdocTypesTrimFixer::name() => true,
-            PromotedConstructorPropertyFixer::name() => true,
             NoUselessDirnameCallFixer::name() => true,
             MultilinePromotedPropertiesFixer::name() => [
-                'minimum_number_of_parameters' => 3,
+                'minimum_number_of_parameters' => 4,
             ],
         ];
     }
